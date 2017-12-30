@@ -1,0 +1,43 @@
+<h1>Add Measurement Form</h1>
+
+
+<div class="container">
+
+  <div class="row">
+
+    <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12 offset-md-3 offset-lg-3">
+
+      <div class="form-group">
+
+        <label for="normal-field" class="col-form-label">Enter Contact Number</label>
+
+        <input type="text" [(ngModel)]="newMeasurement.CustomerContactNumber" id="normal-field" class="form-control custom-inputs"
+          placeholder="Please Enter Customer Contact Number">
+
+      </div>
+      <div class="form-group">
+        <button (click)="search()" class="btn btn-primary">Search</button>
+      </div>
+      <div class="form-group">
+        <select (change)="onChange($event.target.value)">
+          <option disabled selected>Select Customers</option>
+            <option *ngFor = 'let customer of customers'
+            value={{customer._id}}>
+                  {{customer.FullName}}
+            </option>
+</select>
+      </div>
+
+      <div class="form-group">
+        <label for="normal-field" class="col-form-label">Enter Shalwar Kameez Length</label>
+
+        <input type="text" [(ngModel)]="newMeasurement.ShalwarKameezLength" id="normal-field" class="form-control custom-inputs"
+          placeholder="Please Enter Shalwar Kameez Length">
+
+      </div>
+
+      <button (click)="addMeasurement()" class="btn btn-success add-btn">Add Measurement</button>
+
+    </div>
+  </div>
+</div>

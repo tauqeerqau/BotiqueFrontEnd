@@ -1,0 +1,163 @@
+<h1>Add Order Form</h1>
+
+<div class="container">
+
+  <div class="row">
+
+    <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
+
+      <div class="form-group">
+        <label for="normal-field" class="col-form-label">Enter Contact Number</label>
+   
+          <input type="text" [(ngModel)]="newOrder.CustomerContactNumber" id="normal-field" class="form-control custom-inputs" placeholder="Please Enter Contact Number">
+   
+      </div>
+      <button (click)="search()" class="btn btn-primary">Search</button>
+
+      <div class="form-group">
+        <label for="normal-field" class="col-form-label">Enter Advance Received</label>
+      
+          <input type="text" [(ngModel)]="newOrder.AdvanceReceived" id="normal-field" class="form-control custom-inputs" placeholder="Please Enter Advance Received">
+    
+      </div>
+
+      <div class="form-group">
+        <label for="normal-field" class="col-form-label">Enter Order Special Instructions</label>
+       
+          <input type="text" [(ngModel)]="newOrder.SpecialInstructions" id="normal-field" class="form-control custom-inputs" placeholder="Please Enter Delivery Date">
+     
+      </div>
+
+   
+       
+        <div class="form-group">
+          <label for="datetimepicker2i">
+      Try Date
+    </label>
+          <datetime [(ngModel)]="newOrder.TryDate" name="datetime" id="datetimepicker2i"></datetime>
+        </div>
+    
+
+      
+        <div class="form-group">
+          <label for="datetimepicker2i">
+      Delivery Date
+    </label>
+          <datetime [(ngModel)]="newOrder.DeliveryDate" name="datetime" id="datetimepicker2i"></datetime>
+        </div>
+    
+
+        <div class="form-group">
+       
+        <select (change)="onChange($event.target.value)" class="custom-select">
+          <option disabled selected>Select Customers</option>
+      <option *ngFor = 'let customer of customerRefarances'
+      value={{customer._id}}>
+      {{customer.FullName}}
+  </option>
+  </select>
+      </div>
+
+      <div class="form-group ">
+        <label for="normal-field" class="col-form-label">Enter Product Name</label>
+        
+          <input type="text" [(ngModel)]="newOrderItem.ProductName" id="normal-field" class="form-control custom-inputs" placeholder="Please Enter Delivery Date">
+       
+      </div>
+
+      <div class="form-group">
+        
+         <select (change)="onChangeProductType($event.target.value)" class="custom-select">
+           <option disabled selected>Select Type</option>
+       <option *ngFor = 'let productType of productTypes'
+       value={{productType.TypeId}}>
+       {{productType.Name}}
+   </option>
+   </select>
+       </div>
+
+      <div class="form-group">
+        <label for="normal-field" class="col-form-label">Enter Price</label>
+        
+          <input type="text" [(ngModel)]="newOrderItem.Price" id="normal-field" class="form-control custom-inputs" placeholder="Please Enter Delivery Date">
+       
+      </div>
+
+      <div class="form-group">
+        <label for="normal-field" class="col-form-label">Enter Quantity</label>
+    
+          <input type="text" [(ngModel)]="newOrderItem.Quantity" id="normal-field" class="form-control custom-inputs" placeholder="Please Enter Delivery Date">
+ 
+      </div>
+
+      <div class="form-group">
+        <label for="normal-field" class="col-form-label">Enter Special Instructions</label>
+    
+          <input type="text" [(ngModel)]="newOrderItem.SpecialInstructions" id="normal-field" class="form-control custom-inputs" placeholder="Please Enter Delivery Date">
+
+      </div>
+
+      <button (click)="addOrderItem()" class="btn btn-primary add-btn">Add Order Item</button>
+
+      <div class="form-group">
+        <label for="normal-field" class="col-form-label">Order Total</label>
+     
+          <input type="text" [(ngModel)]="newOrder.OrderTotal" id="normal-field" class="form-control custom-inputs" placeholder="">
+      
+      </div>
+
+      <button (click)="addOrder()" class="btn btn-primary add-btn">Add Order</button>
+
+    </div>
+
+    <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
+
+        <div class="table-responsive">          
+            <table class="table table-bordered table-striped">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Item Name</th>
+                  <th>Lastname</th>
+                  <th>Age</th>
+                  <th>City</th>
+                  <th>Country</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>Anna</td>
+                  <td>Pitt</td>
+                  <td>35</td>
+                  <td>New York</td>
+                  <td>USA</td>
+                </tr>
+
+                <tr>
+                    <td>1</td>
+                    <td>Anna</td>
+                    <td>Pitt</td>
+                    <td>35</td>
+                    <td>New York</td>
+                    <td>USA</td>
+                  </tr>
+
+                  <tr>
+                      <td>1</td>
+                      <td>Anna</td>
+                      <td>Pitt</td>
+                      <td>35</td>
+                      <td>New York</td>
+                      <td>USA</td>
+                    </tr>
+              </tbody>
+            </table>
+            </div>
+
+
+    </div>
+  </div>
+</div>
+
+
