@@ -1,80 +1,31 @@
-@import "../../../node_modules/bootstrap/scss/variables";
+@import "../../../node_modules/ng2-datetime/src/vendor/bootstrap-datepicker/bootstrap-datepicker3.min";
+@import "../../../node_modules/ng2-datetime/src/vendor/bootstrap-timepicker/bootstrap-timepicker.min";
+@import "../../../node_modules/bootstrap-colorpicker/dist/css/bootstrap-colorpicker";
+@import "../../../node_modules/bootstrap-markdown/css/bootstrap-markdown.min";
+@import "../../../node_modules/bootstrap-select/dist/css/bootstrap-select";
+@import "../../../node_modules/jasny-bootstrap/dist/css/jasny-bootstrap";
+@import "../../../node_modules/dropzone/dist/dropzone";
 @import "../scss/variables";
+@import "../scss/mixins";
+@import "../../../node_modules/bootstrap/scss/_variables";
+@import "../../../node_modules/bootstrap/scss/mixins";
+@import "../scss/select2-variables";
+@import "../../../node_modules/select2/src/scss/core";
+@import "../../../node_modules/select2-bootstrap-theme/src/select2-bootstrap";
 
-/***********************************/
-/**             LOGIN             **/
-/***********************************/
-
-.login-page{
-  background-color: $gray-semi-lighter;
+.custom-inputs{
+    width:100%;
+    border-radius:0;
 }
 
-.login-page .page-footer {
-  margin-bottom: 25px;
-  font-size: $font-size-mini;
-  color: $text-muted;
-  text-align: center;
-  @media (min-height: 600px) {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-  }
+.add-btn{
+  border:none;
+  height:46px;
+  padding:10px 2px;
+  min-width:250px;
+  margin:0 auto;
 }
 
-.widget-login-container{
-  padding-top: 10%;
-}
-
-.widget-login-logo{
-  margin-top: 15px;
-  margin-bottom: 15px;
-  text-align: center;
-  font-weight: $font-weight-normal;
-  .fa-circle{
-    font-size: 13px;
-    margin: 0 20px;
-  }
-}
-
-.widget-login{
-  padding: 30px;
-
-  > header{
-    h1,h2,h3,h4,h5,h6{
-      font-weight: $font-weight-normal;
-      text-align: center;
-    }
-  }
-}
-
-.widget-login-info{
-  font-size: $font-size-mini;
-  color: #888;
-  margin-top: 1px;
-  margin-bottom: 0;
-  text-align: center;
-
-  &.abc-checkbox {
-    margin-left: -25px;
-  }
-}
-
-.login-form{
-  .form-control{
-    font-size: $font-size-mini;
-    border: none;
-    background-color: $gray-lighter;
-    &:focus{
-      background-color: $gray-semi-lighter;
-    }
-  }
-}
-
-
-.my-btn{
-  color:white;
-}
 
 #snackbar {
   visibility: hidden; /* Hidden by default. Visible on click */
@@ -120,4 +71,11 @@ However, delay the fade out process for 2.5 seconds */
 @keyframes fadeout {
   from {bottom: 30px; opacity: 1;}
   to {bottom: 0; opacity: 0;}
+}
+
+
+.customerLoader{
+  width:50px;
+  margin:25px auto;
+  display:none;
 }

@@ -19,7 +19,6 @@ export class OrderService {
      }
 
      public addCustomerOrder(customerOrder: CustomerOrder): Observable<CustomerOrder> {
-        console.log("Add Customer Order is called in Service");
         console.log(customerOrder);
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
@@ -59,4 +58,52 @@ export class OrderService {
         return body.data || {};
     }
 
-}
+    AssignThisOrderItemToUser(orderItem,assignedBy,elem){
+
+        var data;
+
+        data = {OrderItemId:orderItem,AssignedBy:assignedBy,AssignedTo:elem};
+        let headers = new Headers();
+
+        headers.append('Content-Type', 'application/json; charset=UTF-8');
+        return this._http.post(this.baseURL + "orders/changeOrderItemAsignee", data, { headers: headers })
+            .map(res => res.json());
+            
+    }
+
+    getOrdersListByOrderStatus(elem){
+
+        let headers = new Headers();
+ 
+        headers.append('Content-Type', 'application/json; charset=UTF-8');
+        return this._http.get(this.baseURL + "orders/getOrdersByStatus?OrderStatus=" + elem, { headers: headers })
+            .map(res => res.json());
+    }
+
+
+    getDetailsForOrder(id){
+
+        let headers = new Headers();
+ 
+        headers.append('Content-Type', 'application/json; charset=UTF-8');
+        return this._http.get(this.baseURL + "orders/getOrderByOrderId?orderId=" + id, { headers: headers })
+            .map(res => res.json());
+    }
+    
+
+    editOrderStatus(elem,orderId){
+
+        var data;
+
+        data = {OrderId:orderId,OrderStatus:elem};
+        let headers = new Headers();
+
+        headers.append('Content-Type', 'application/json; charset=UTF-8');
+        return this._http.post(this.baseURL + "orders/changeOrderStatus", data, { headers: headers })
+            .map(res => res.json());
+            
+    }
+    
+
+    //https://ssbotique.herokuapp.com/orders/getOrdersByStatus?OrderStatus=100
+} 

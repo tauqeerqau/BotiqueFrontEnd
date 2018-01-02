@@ -53,6 +53,40 @@ export class EmployeeService {
         console.log("Extract Data");
         console.log(body);
         return body.data || {};
+    }   
+
+
+    getEmployees(){
+        
+        let headers = new Headers();
+
+        headers.append('Content-Type', 'application/json; charset=UTF-8');
+        return this._http.get(this.baseURL + "employees/getAllEmployees", { headers: headers })
+            .map(res => res.json());
+    }
+
+     login(username,password){
+        var data;
+
+        data = {UserName:username,Password:password};
+        let headers = new Headers();
+
+        headers.append('Content-Type', 'application/json; charset=UTF-8');
+        return this._http.post(this.baseURL+ "employees/login", data, { headers: headers })
+            .map(res => res.json());
+    } 
+
+    getAssignedItems(assignedTo){
+
+        var data;
+
+        data = {AssignedTo:assignedTo};
+        let headers = new Headers();
+
+        headers.append('Content-Type', 'application/json; charset=UTF-8');
+        return this._http.post(this.baseURL+ "employees/getMyOrderItems", data, { headers: headers })
+            .map(res => res.json());
+
     }
 
 }

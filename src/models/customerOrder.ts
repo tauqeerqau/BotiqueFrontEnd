@@ -11,6 +11,7 @@ import {OrderItem} from './../models/orderItem'
             CustomerId: string;
             CustomerContactNumber: string;
             SpecialInstructions: string;
+            OrderTakenBy:string;
             __v: number;
             OrderItemId: OrderItem[];
         }

@@ -17,13 +17,13 @@ export class MeasurementService {
         this.baseURL = server.getServerURL();
      }
 
-    public addMeasurement(measurement: Measurement): Observable<Measurement> {
+    public addMeasurement(measurement: Measurement){
         console.log("Add Measurement is called in Service");
         console.log(measurement);
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
         return this._http.post(this.baseURL + this._addMeasurmentURL, measurement, options)
-            .map(this.extractData);
+        .map(res => res.json());
     }
 
     private extractData(res: Response) {

@@ -1,6 +1,7 @@
 import { Component, EventEmitter, OnInit, ElementRef, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { AppConfig } from '../../app.config';
+import { UserModel } from '../../../models/user';
 declare var jQuery: any;
 
 @Component({
@@ -14,12 +15,29 @@ export class Navbar implements OnInit {
   config: any;
   router: Router;
 
+  public userObject:UserModel;
+
+
   constructor(el: ElementRef, config: AppConfig, router: Router) {
     this.$el = jQuery(el.nativeElement);
     this.config = config.getConfig();
     this.router = router;
+
+    this.userObject = JSON.parse(localStorage.getItem('user'));
+    console.log(this.userObject);
+    if(this.userObject==null){
+      this.router.navigate(["/login"]);
+    }else{  
+
+    }
+
   }
 
+
+  logout(){
+    localStorage.setItem('user', JSON.stringify(null));
+    this.router.navigate(["/login"]);
+  }
   toggleSidebar(state): void {
     this.toggleSidebarEvent.emit(state);
   }

@@ -3,7 +3,7 @@ import { Layout } from './layout.component';
 // noinspection TypeScriptValidateTypes
 const routes: Routes = [
   { path: '', component: Layout, children: [
-    { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+    { path: '', redirectTo: 'customers', pathMatch: 'full' },
     { path: 'dashboard', loadChildren: () => System.import('../dashboard/dashboard.module') },
     { path: 'inbox', loadChildren: () => System.import('../inbox/inbox.module') },
     { path: 'charts', loadChildren: () => System.import('../charts/charts.module') },
@@ -19,7 +19,9 @@ const routes: Routes = [
     { path: 'customers', loadChildren: () => System.import('../customers/customer.module') },
     { path: 'addEmployee', loadChildren: () => System.import('../employees/employee.module') },
     { path: 'addCustomerMeasurement', loadChildren: () => System.import('../customers/customerMeasurementForm.module') },
-    { path: 'addOrder', loadChildren: () => System.import('../orders/orderForm.module') }
+    { path: 'addOrder', loadChildren: () => System.import('../orders/orderForm.module') },
+    { path: 'orderdetail', loadChildren: () => System.import('../orderDetails/orderdetail.module') },
+    { path: 'assigneditems', loadChildren: () => System.import('../assignedItems/assignedItems.module') }
   ]}
 ];
 

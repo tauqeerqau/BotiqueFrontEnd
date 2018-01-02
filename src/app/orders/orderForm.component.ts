@@ -4,7 +4,7 @@ import { Customer } from './../../models/customer';
 import { OrderItem } from './../../models/orderItem';
 import { OrderService } from './../../services/order.Service'
 import { CustomerService } from './../../services/customer.Service'
-
+import { UserModel } from '../../models/user';
 @Component({
     selector: 'order-form',
     templateUrl: './orderForm.template.html',
@@ -18,6 +18,7 @@ export class OrderFormComponent {
     public customer;
     public customerRefarances;
     public productTypes;
+    public userObject:UserModel;
     constructor(private _orderService: OrderService,
         private _customerService: CustomerService
     ) { }
@@ -25,6 +26,9 @@ export class OrderFormComponent {
 
     addOrder(): void {
         console.log("Add Order is Clicked TS");
+        this.userObject = JSON.parse(localStorage.getItem('user'));
+    
+        this.newOrder.OrderTakenBy = this.userObject._id;
         this.newOrder.DeliveryDate = Math.round(new Date(this.newOrder.DeliveryDate).getTime()/1000);
         this.newOrder.TryDate = Math.round(new Date(this.newOrder.TryDate).getTime()/1000);
         this._orderService.addCustomerOrder(this.newOrder).subscribe(res => {
@@ -79,6 +83,7 @@ export class OrderFormComponent {
     }
 
     ngOnInit(): void {
+        this.userObject = new UserModel();
         this.newOrder = new CustomerOrder();
         this.newOrderItem = new OrderItem();
         this.customer = new Customer();

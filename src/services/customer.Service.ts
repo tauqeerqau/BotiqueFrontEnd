@@ -10,17 +10,18 @@ import { CustomerResponse } from './../models/customerResponse';
 @Injectable()
 export class CustomerService {
 
-    private _addCustomerURL = 'http://localhost:3100/customers/addCustomer';
-    private _getAllCustomersURL = 'http://localhost:3100/customers/getAllCustomers';
-    private getCustomersByContactNumberURL = 'http://localhost:3100/customers/getCustomerAndReferancesByContactNumber?ContactNumber=';
+   // private _addCustomerURL = 'http://localhost:3100/customers/addCustomer';
+    private _addCustomerURL = "https://ssbotique.herokuapp.com/customers/addCustomer";
+    private _getAllCustomersURL = 'https://ssbotique.herokuapp.com/customers/getAllCustomers';
+    private getCustomersByContactNumberURL = 'https://ssbotique.herokuapp.com/customers/getCustomerAndReferancesByContactNumber?ContactNumber=';
     constructor(private _http: Http) { }
 
 
-    public addCustomer(customer: Customer): Observable<Customer> {
+    public addCustomer(customer: Customer) {
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
         return this._http.post(this._addCustomerURL, customer, options)
-            .map(this.extractData);
+        .map(res => res.json());
     }
     
     public getAllCustomers(): Observable<CustomerResponse> {

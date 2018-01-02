@@ -1,14 +1,13 @@
 <div class="js-sidebar-content">
   <header class="logo hidden-sm-down">
-    <a href="index.html">{{config.name}}</a>
+<!--     <a href="index.html">{{config.name}}</a> -->
   </header>
-  <div class="sidebar-status hidden-md-up">
+<!--   <div class="sidebar-status hidden-md-up">
     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <span class="thumb-sm avatar pull-xs-right">
         <img class="img-circle" src="assets/img/people/a5.jpg" alt="...">
               </span>
-      <!-- .circle is a pretty cool way to add a bit of beauty to raw data.
-           should be used with bg-* and text-* classes for colors -->
+
               <span class="circle bg-warning fw-bold text-gray-dark">
                   13
               </span>
@@ -16,11 +15,11 @@
       Philip <strong>Smith</strong>
       <b class="caret"></b>
     </a>
-    <!-- #notifications-dropdown-menu goes here when screen collapsed to xs or sm -->
-  </div>
+
+  </div> -->
   <!-- main notification links are placed inside of .sidebar-nav -->
   <ul class="sidebar-nav">
-    <li>
+  <!--   <li>
       <a class="collapsed" data-target="#sidebar-dashboard" data-toggle="collapse" data-parent="#sidebar">
           <span class="icon">
             <i class="fa fa-desktop"></i>
@@ -32,8 +31,8 @@
         <li><a [routerLink]=" ['dashboard'] ">Dashboard</a></li>
         <li><a [routerLink]=" ['widgets'] ">Widgets</a></li>
       </ul>
-    </li>
-    <li>
+    </li> -->
+  <!--   <li>
       <a [routerLink]=" ['inbox'] ">
           <span class="icon">
             <i class="fa fa-envelope"></i>
@@ -43,7 +42,7 @@
             9
           </span>
       </a>
-    </li>
+    </li> -->
     <li>
       <a [routerLink]=" ['customers'] ">
           <span class="icon">
@@ -55,7 +54,7 @@
     <li>
       <a [routerLink]=" ['addEmployee'] ">
           <span class="icon">
-            <i class="glyphicon glyphicon-user"></i>
+            <i class="fa fa-user-plus" aria-hidden="true"></i>
           </span>
         Add Employee
       </a>
@@ -63,7 +62,7 @@
     <li>
       <a [routerLink]=" ['addCustomerMeasurement'] ">
           <span class="icon">
-            <i class="glyphicon glyphicon-user"></i>
+            <i class="fa fa-pencil" aria-hidden="true"></i>
           </span>
         Add Measurement
       </a>
@@ -77,14 +76,30 @@
       </a>
     </li>
     <li>
+      <a [routerLink]=" ['orderdetail'] ">
+          <span class="icon">
+            <i class="glyphicon glyphicon-user"></i>
+          </span>
+          Display Orders
+      </a>
+    </li>
+    <li>
+        <a [routerLink]=" ['assigneditems'] ">
+            <span class="icon">
+              <i class="fa fa-list"></i>
+            </span>
+          Assigned Items
+        </a>
+      </li>
+  <!--   <li>
       <a [routerLink]=" ['charts'] ">
           <span class="icon">
             <i class="glyphicon glyphicon-stats"></i>
           </span>
         Charts
       </a>
-    </li>
-    <li>
+    </li> -->
+    <!-- <li>
       <a [routerLink]=" ['profile'] ">
           <span class="icon">
             <i class="glyphicon glyphicon-user"></i>
@@ -94,13 +109,13 @@
           new
         </sup>
       </a>
-    </li>
+    </li> -->
   </ul>
   <!-- every .sidebar-nav may have a title -->
-  <h5 class="sidebar-nav-title">Template <a class="action-link" href="#"><i class="glyphicon glyphicon-refresh"></i></a></h5>
+  <!-- <h5 class="sidebar-nav-title">Template <a class="action-link" href="#"><i class="glyphicon glyphicon-refresh"></i></a></h5>
   <ul class="sidebar-nav">
     <li>
-      <!-- an example of nested submenu. basic bootstrap collapse component -->
+    
       <a class="collapsed" data-target="#sidebar-forms" data-toggle="collapse" data-parent="#sidebar">
           <span class="icon">
             <i class="glyphicon glyphicon-align-right"></i>
@@ -153,7 +168,7 @@
       </ul>
     </li>
     <li>
-      <!-- an example of nested submenu. basic bootstrap collapse component -->
+    
       <a class="collapsed" data-target="#sidebar-tables" data-toggle="collapse" data-parent="#sidebar">
           <span class="icon">
             <i class="fa fa-table"></i>
@@ -206,13 +221,13 @@
         </li>
       </ul>
     </li>
-  </ul>
-  <h5 class="sidebar-nav-title">Labels <a class="action-link" href="#"><i class="glyphicon glyphicon-plus"></i></a></h5>
-  <!-- some styled links in sidebar. ready to use as links to email folders, projects, groups, etc -->
+  </ul> -->
+ <!--  <h5 class="sidebar-nav-title">Labels <a class="action-link" href="#"><i class="glyphicon glyphicon-plus"></i></a></h5>
+  
   <ul class="sidebar-labels">
     <li>
       <a href="#">
-        <!-- yep, .circle again -->
+      
         <i class="fa fa-circle text-warning mr-xs"></i>
         <span class="label-name">My Recent</span>
       </a>
@@ -231,7 +246,7 @@
     </li>
   </ul>
   <h5 class="sidebar-nav-title">Projects</h5>
-  <!-- A place for sidebar notifications & alerts -->
+  <!-- A place for sidebar notifications & alerts 
   <div class="sidebar-alerts">
     <div class="alert fade in">
       <a href="#" class="close" data-dismiss="alert" aria-hidden="true">&times;</a>
@@ -249,5 +264,5 @@
       </div>
       <small>Provide required notes</small>
     </div>
-  </div>
+  </div> -->
 </div>

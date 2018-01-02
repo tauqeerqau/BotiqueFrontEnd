@@ -1,12 +1,10 @@
 <h1>Add Measurement Form</h1>
-
+<div id="snackbar"></div>
 
 <div class="container">
 
   <div class="row">
-
-    <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12 offset-md-3 offset-lg-3">
-
+    <div class="col-md-6 col-lg-6 col-sm-6 offset-lg-3 offset-md-3 offset-sm-3 common-form">
       <div class="form-group">
 
         <label for="normal-field" class="col-form-label">Enter Contact Number</label>
@@ -15,28 +13,614 @@
           placeholder="Please Enter Customer Contact Number">
 
       </div>
+
       <div class="form-group">
         <button (click)="search()" class="btn btn-primary">Search</button>
       </div>
+
+
       <div class="form-group">
         <select (change)="onChange($event.target.value)">
           <option disabled selected>Select Customers</option>
-            <option *ngFor = 'let customer of customers'
-            value={{customer._id}}>
-                  {{customer.FullName}}
-            </option>
-</select>
+          <option *ngFor='let customer of customers' value={{customer._id}}>
+            {{customer.FullName}}
+          </option>
+        </select>
       </div>
 
-      <div class="form-group">
-        <label for="normal-field" class="col-form-label">Enter Shalwar Kameez Length</label>
+      <div class="row" id="selectType">
+        <h1 class="record-text">Record Measurements for:</h1>
+          <select class="measurementsType" (change)="getForms($event.target.value)">
+            <option disabled selected>Select Option</option>
+            <option value="Shalwar Kameez">Shalwar Kameez</option>
+            <option value="Coat">Coat</option>
+            <option value="Sherwani">Sherwani</option>
+            <option value="Waist Coat">Waist Coat</option>
+            <option value="Pant">Pant</option>
+            <option value="Trouser">Trouser</option>
 
-        <input type="text" [(ngModel)]="newMeasurement.ShalwarKameezLength" id="normal-field" class="form-control custom-inputs"
-          placeholder="Please Enter Shalwar Kameez Length">
+          </select>
+      </div>
+    </div>
+  </div>
+
+  <div class="row row-2">
+
+    <div class="col-md-6 col-lg-6 col-sm-6 offset-md-3 offset-sm-3 offset-lg-3 col-xs-12">
+
+
+      <div class="shalwar" *ngIf="ShalwarKameez">
+        <!-- Shalwar Kameez Div -->
+
+        <fieldset>
+
+          <legend>Shalwar Kameez</legend>
+
+          <div class="form-group">
+            <label for="normal-field" class="col-form-label">Enter Shalwar Kameez Length</label>
+
+            <input type="text" [(ngModel)]="newMeasurement.ShalwarKameezLength" id="normal-field" class="form-control custom-inputs"
+              placeholder="Please Enter Shalwar Kameez Length">
+
+          </div>
+
+
+          <div class="form-group">
+            <label for="normal-field" class="col-form-label">Enter Shalwar Kameez Chest</label>
+
+            <input type="text" [(ngModel)]="newMeasurement.ShalwarKameezChest" id="normal-field" class="form-control custom-inputs"
+              placeholder="Please Enter Shalwar Kameez Chest">
+
+          </div>
+
+
+          <div class="form-group">
+            <label for="normal-field" class="col-form-label">Enter Shalwar Waist</label>
+
+            <input type="text" [(ngModel)]="newMeasurement.ShalwarKameezWaist" id="normal-field" class="form-control custom-inputs"
+              placeholder="Please Enter Shalwar Waist">
+
+          </div>
+
+
+
+          <div class="form-group">
+            <label for="normal-field" class="col-form-label">Enter Hip Measurement</label>
+
+            <input type="text" [(ngModel)]="newMeasurement.ShalwarKameezHip" id="normal-field" class="form-control custom-inputs"
+              placeholder="Please Enter Hip Measurement">
+
+          </div>
+
+
+
+          <div class="form-group">
+            <label for="normal-field" class="col-form-label">Enter Shalwar Sleeve Length</label>
+
+            <input type="text" [(ngModel)]="newMeasurement.ShalwarKameezSleeve" id="normal-field" class="form-control custom-inputs"
+              placeholder="Please Enter Shalwar Sleeve Length">
+
+          </div>
+
+
+
+          <div class="form-group">
+            <label for="normal-field" class="col-form-label">Enter Shalwar Shoulder Length</label>
+
+            <input type="text" [(ngModel)]="newMeasurement.ShalwarKameezShoulder" id="normal-field" class="form-control custom-inputs"
+              placeholder="Please Enter Shalwar Kameez Length">
+
+          </div>
+
+
+
+          <div class="form-group">
+            <label for="normal-field" class="col-form-label">Enter Shalwar Neck Measurement</label>
+
+            <input type="text" [(ngModel)]="newMeasurement.ShalwarKameezNeck" id="normal-field" class="form-control custom-inputs"
+              placeholder="Please Enter Shalwar Neck Measurement">
+
+          </div>
+
+
+
+          <div class="form-group">
+            <label for="normal-field" class="col-form-label">Enter Biceps Length</label>
+
+            <input type="text" [(ngModel)]="newMeasurement.ShalwarKameezBysep" id="normal-field" class="form-control custom-inputs"
+              placeholder="Please Enter Biceps Length">
+
+          </div>
+
+          <div class="form-group">
+            <label for="normal-field" class="col-form-label">Enter S. Length</label>
+
+            <input type="text" [(ngModel)]="newMeasurement.ShalwarKameezSLength" id="normal-field" class="form-control custom-inputs"
+              placeholder="Please Enter Shalwar Kameez Length">
+
+          </div>
+
+          <div class="form-group">
+            <label for="normal-field" class="col-form-label">Enter Bottom</label>
+
+            <input type="text" [(ngModel)]="newMeasurement.ShalwarKameezBottom" id="normal-field" class="form-control custom-inputs"
+              placeholder="Please Enter Bottom">
+
+          </div>
+
+          <button (click)="addMeasurement()" class="btn btn-success add-btn">Add Measurement</button>
+
+        </fieldset>
 
       </div>
+      <!-- Shalwar Kameez div  -->
 
-      <button (click)="addMeasurement()" class="btn btn-success add-btn">Add Measurement</button>
+
+
+
+      <div class="shalwar" *ngIf="Coat"> 
+        <!-- Coat -div -->
+
+        <fieldset>
+
+          <legend>Coat</legend>
+
+          <div class="form-group">
+            <label for="normal-field" class="col-form-label">Enter Coat Length</label>
+
+            <input type="text" [(ngModel)]="newMeasurement.CoatLength" id="normal-field" class="form-control custom-inputs"
+              placeholder="Please Enter Coat Length">
+
+          </div>
+
+
+          <div class="form-group">
+            <label for="normal-field" class="col-form-label">Enter Coat Chest</label>
+
+            <input type="text" [(ngModel)]="newMeasurement.CoatChest" id="normal-field" class="form-control custom-inputs"
+              placeholder="Please Enter Coat Chest">
+
+          </div>
+
+
+          <div class="form-group">
+            <label for="normal-field" class="col-form-label">Enter coat Waist</label>
+
+            <input type="text" [(ngModel)]="newMeasurement.CoatWaist" id="normal-field" class="form-control custom-inputs"
+              placeholder="Please Enter coat Waist">
+
+          </div>
+
+
+
+          <div class="form-group">
+            <label for="normal-field" class="col-form-label">Enter Hip Measurement</label>
+
+            <input type="text" [(ngModel)]="newMeasurement.CoatHip" id="normal-field" class="form-control custom-inputs"
+              placeholder="Please Enter Hip Measurement">
+
+          </div>
+
+
+
+          <div class="form-group">
+            <label for="normal-field" class="col-form-label">Enter Sleeve Length</label>
+
+            <input type="text" [(ngModel)]="newMeasurement.CoatSleeve" id="normal-field" class="form-control custom-inputs"
+              placeholder="Please Enter Sleeve Length">
+
+          </div>
+
+
+
+          <div class="form-group">
+            <label for="normal-field" class="col-form-label">Enter Shoulder Length</label>
+
+            <input type="text" [(ngModel)]="newMeasurement.CoatShoulder" id="normal-field" class="form-control custom-inputs"
+              placeholder="Please Enter Shoulder Length">
+
+          </div>
+
+
+
+          <div class="form-group">
+            <label for="normal-field" class="col-form-label">Enter Neck Measurement</label>
+
+            <input type="text" [(ngModel)]="newMeasurement.CoatNeck" id="normal-field" class="form-control custom-inputs"
+              placeholder="Please Enter Neck Measurement">
+
+          </div>
+
+        
+
+          <div class="form-group">
+            <label for="normal-field" class="col-form-label">Enter Biceps Length</label>
+
+            <input type="text" [(ngModel)]="newMeasurement.CoatBysep" id="normal-field" class="form-control custom-inputs"
+              placeholder="Please Enter Biceps Length">
+
+          </div>
+
+          <div class="form-group">
+            <label for="normal-field" class="col-form-label">Enter H.B</label>
+
+            <input type="text" [(ngModel)]="newMeasurement.CoatHB" id="normal-field" class="form-control custom-inputs"
+              placeholder="Please H.B">
+
+          </div>
+
+          <div class="form-group">
+            <label for="normal-field" class="col-form-label">Enter C.B</label>
+
+            <input type="text" [(ngModel)]="newMeasurement.CoatCB" id="normal-field" class="form-control custom-inputs"
+              placeholder="Please Enter C.B">
+
+          </div>
+
+          <button (click)="addMeasurement()" class="btn btn-success add-btn">Add Measurement</button>
+
+        </fieldset>
+
+      </div>
+      <!-- Coat div  -->
+
+
+
+
+
+
+      <div class="shalwar" *ngIf="Sherwani">
+
+        <fieldset>
+          <!-- Sherwani div  -->
+
+          <legend>Sherwani</legend>
+
+          <div class="form-group">
+            <label for="normal-field" class="col-form-label">Enter Sherwani Length</label>
+
+            <input type="text" [(ngModel)]="newMeasurement.SherwaniLength" id="normal-field" class="form-control custom-inputs"
+              placeholder="Please Enter Coat Length">
+
+          </div>
+
+
+          <div class="form-group">
+            <label for="normal-field" class="col-form-label">Enter Sherwani Chest</label>
+
+            <input type="text" [(ngModel)]="newMeasurement.SherwaniChest" id="normal-field" class="form-control custom-inputs"
+              placeholder="Please Enter Coat Chest">
+
+          </div>
+
+
+          <div class="form-group">
+            <label for="normal-field" class="col-form-label">Enter Sherwani Waist</label>
+
+            <input type="text" [(ngModel)]="newMeasurement.SherwaniWaist" id="normal-field" class="form-control custom-inputs"
+              placeholder="Please Enter coat Waist">
+
+          </div>
+
+
+
+          <div class="form-group">
+            <label for="normal-field" class="col-form-label">Enter Hip Measurement</label>
+
+            <input type="text" [(ngModel)]="newMeasurement.SherwaniHip" id="normal-field" class="form-control custom-inputs"
+              placeholder="Please Enter Hip Measurement">
+
+          </div>
+
+
+
+          <div class="form-group">
+            <label for="normal-field" class="col-form-label">Enter Sleeve Length</label>
+
+            <input type="text" [(ngModel)]="newMeasurement.SherwaniSleeve" id="normal-field" class="form-control custom-inputs"
+              placeholder="Please Enter Sleeve Length">
+
+          </div>
+
+
+
+          <div class="form-group">
+            <label for="normal-field" class="col-form-label">Enter Shoulder Length</label>
+
+            <input type="text" [(ngModel)]="newMeasurement.SherwaniShoulder" id="normal-field" class="form-control custom-inputs"
+              placeholder="Please Enter Shoulder Length">
+
+          </div>
+
+
+
+          <div class="form-group">
+            <label for="normal-field" class="col-form-label">Enter Neck Measurement</label>
+
+            <input type="text" [(ngModel)]="newMeasurement.SherwaniNeck" id="normal-field" class="form-control custom-inputs"
+              placeholder="Please Enter Neck Measurement">
+
+          </div>
+
+
+          <div class="form-group">
+            <label for="normal-field" class="col-form-label">Enter Biceps Length</label>
+
+            <input type="text" [(ngModel)]="newMeasurement.SherwaniBysep" id="normal-field" class="form-control custom-inputs"
+              placeholder="Please Enter Biceps Length">
+
+          </div>
+
+          <div class="form-group">
+            <label for="normal-field" class="col-form-label">Enter Sherwani H.B</label>
+
+            <input type="text" [(ngModel)]="newMeasurement.SherwaniHB" id="normal-field" class="form-control custom-inputs"
+              placeholder="Please H.B">
+
+          </div>
+
+          <div class="form-group">
+            <label for="normal-field" class="col-form-label">Enter C.B</label>
+
+            <input type="text" [(ngModel)]="newMeasurement.SherwaniCB" id="normal-field" class="form-control custom-inputs"
+              placeholder="Please Enter C.B">
+
+          </div>
+
+          <button (click)="addMeasurement()" class="btn btn-success add-btn">Add Measurement</button>
+
+        </fieldset>
+
+      </div>
+      <!-- sherwani div  -->
+
+
+
+
+
+
+      <div class="shalwar" *ngIf="WaistCoat">
+
+        <fieldset>
+          <!-- waist coat div  -->
+
+          <legend>Waist Coat</legend>
+
+          <div class="form-group">
+            <label for="normal-field" class="col-form-label">Enter Coat Length</label>
+
+            <input type="text" [(ngModel)]="newMeasurement.CoatLength" id="normal-field" class="form-control custom-inputs"
+              placeholder="Please Enter Coat Length">
+
+          </div>
+
+
+          <div class="form-group">
+            <label for="normal-field" class="col-form-label">Enter Coat Chest</label>
+
+            <input type="text" [(ngModel)]="newMeasurement.CoatChest" id="normal-field" class="form-control custom-inputs"
+              placeholder="Please Enter Coat Chest">
+
+          </div>
+
+
+          <div class="form-group">
+            <label for="normal-field" class="col-form-label">Enter coat Waist</label>
+
+            <input type="text" [(ngModel)]="newMeasurement.CoatWaist" id="normal-field" class="form-control custom-inputs"
+              placeholder="Please Enter coat Waist">
+
+          </div>
+
+
+
+          <div class="form-group">
+            <label for="normal-field" class="col-form-label">Enter Hip Measurement</label>
+
+            <input type="text" [(ngModel)]="newMeasurement.CoatHip" id="normal-field" class="form-control custom-inputs"
+              placeholder="Please Enter Hip Measurement">
+
+          </div>
+
+
+
+          <div class="form-group">
+            <label for="normal-field" class="col-form-label">Enter Shoulder Length</label>
+
+            <input type="text" [(ngModel)]="newMeasurement.CoatShoulder" id="normal-field" class="form-control custom-inputs"
+              placeholder="Please Enter Shoulder Length">
+
+          </div>
+
+
+
+          <div class="form-group">
+            <label for="normal-field" class="col-form-label">Enter Neck Measurement</label>
+
+            <input type="text" [(ngModel)]="newMeasurement.CoatNeck" id="normal-field" class="form-control custom-inputs"
+              placeholder="Please Enter Neck Measurement">
+
+          </div>
+
+
+          <div class="form-group">
+            <label for="normal-field" class="col-form-label">Enter H.B</label>
+
+            <input type="text" [(ngModel)]="newMeasurement.CoatHB" id="normal-field" class="form-control custom-inputs"
+              placeholder="Please H.B">
+
+          </div>
+
+          <div class="form-group">
+            <label for="normal-field" class="col-form-label">Enter C.B</label>
+
+            <input type="text" [(ngModel)]="newMeasurement.CoatCB" id="normal-field" class="form-control custom-inputs"
+              placeholder="Please Enter C.B">
+
+          </div>
+
+          <button (click)="addMeasurement()" class="btn btn-success add-btn">Add Measurement</button>
+
+        </fieldset>
+
+      </div>
+      <!-- waist coat div  -->
+
+
+
+
+      <div class="shalwar" *ngIf="Pant">
+        <!-- pants div  -->
+
+        <fieldset>
+
+          <legend>Pant</legend>
+
+
+
+
+
+          <div class="form-group">
+            <label for="normal-field" class="col-form-label">Enter Pant Waist</label>
+
+            <input type="text" [(ngModel)]="newMeasurement.PentWaist" id="normal-field" class="form-control custom-inputs"
+              placeholder="Please Pant Waist">
+
+          </div>
+
+
+
+          <div class="form-group">
+            <label for="normal-field" class="col-form-label">Enter Hip Measurement</label>
+
+            <input type="text" [(ngModel)]="newMeasurement.PentHip" id="normal-field" class="form-control custom-inputs"
+              placeholder="Please Enter Hip Measurement">
+
+          </div>
+
+
+
+          <div class="form-group">
+            <label for="normal-field" class="col-form-label">Enter Pant Length</label>
+
+            <input type="text" [(ngModel)]="newMeasurement.PentLength" id="normal-field" class="form-control custom-inputs"
+              placeholder="Please Enter Pant Length">
+
+          </div>
+
+
+
+          <div class="form-group">
+            <label for="normal-field" class="col-form-label">Enter Knee Measurement</label>
+
+            <input type="text" [(ngModel)]="newMeasurement.PentKnee" id="normal-field" class="form-control custom-inputs"
+              placeholder="Please Enter Knee Measurement">
+
+          </div>
+
+
+          <div class="form-group">
+            <label for="normal-field" class="col-form-label">Enter Bottom</label>
+
+            <input type="text" [(ngModel)]="newMeasurement.PentBottom" id="normal-field" class="form-control custom-inputs"
+              placeholder="Please Enter Bottom">
+
+          </div>
+
+          <div class="form-group">
+            <label for="normal-field" class="col-form-label">Enter Inside</label>
+
+            <input type="text" [(ngModel)]="newMeasurement.PentInside" id="normal-field" class="form-control custom-inputs"
+              placeholder="Please Enter Inside">
+
+          </div>
+
+          <button (click)="addMeasurement()" class="btn btn-success add-btn">Add Measurement</button>
+
+        </fieldset>
+
+      </div>
+      <!-- pants div  -->
+
+
+
+
+
+
+
+
+      <div class="shalwar" *ngIf="Trouser"><!-- Trouser div  -->
+
+        <fieldset>
+
+          <legend>Trouser</legend>
+
+
+
+
+
+          <div class="form-group">
+            <label for="normal-field" class="col-form-label">Enter Trouser Waist</label>
+
+            <input type="text" [(ngModel)]="newMeasurement.TrouserWaist" id="normal-field" class="form-control custom-inputs"
+              placeholder="Please Pant Waist">
+
+          </div>
+
+
+
+          <div class="form-group">
+            <label for="normal-field" class="col-form-label">Enter Hip Measurement</label>
+
+            <input type="text" [(ngModel)]="newMeasurement.TrouserHip" id="normal-field" class="form-control custom-inputs"
+              placeholder="Please Enter Hip Measurement">
+
+          </div>
+
+
+
+          <div class="form-group">
+            <label for="normal-field" class="col-form-label">Enter Trouser Length</label>
+
+            <input type="text" [(ngModel)]="newMeasurement.TrouserLength" id="normal-field" class="form-control custom-inputs"
+              placeholder="Please Enter Pant Length">
+
+          </div>
+
+
+
+          <div class="form-group">
+            <label for="normal-field" class="col-form-label">Enter Knee Measurement</label>
+
+            <input type="text" [(ngModel)]="newMeasurement.TrouserKnee" id="normal-field" class="form-control custom-inputs"
+              placeholder="Please Enter Knee Measurement">
+
+          </div>
+
+
+          <div class="form-group">
+            <label for="normal-field" class="col-form-label">Enter Trouser Bottom</label>
+
+            <input type="text" [(ngModel)]="newMeasurement.TrouserBottom" id="normal-field" class="form-control custom-inputs"
+              placeholder="Please Enter Bottom">
+
+          </div>
+
+          <div class="form-group">
+            <label for="normal-field" class="col-form-label">Enter Trouser Inside</label>
+
+            <input type="text" [(ngModel)]="newMeasurement.TrouserInside" id="normal-field" class="form-control custom-inputs"
+              placeholder="Please Enter Inside">
+
+          </div>
+
+          <button (click)="addMeasurement()" class="btn btn-success add-btn">Add Measurement</button>
+
+        </fieldset>
+
+      </div><!-- Trouser div  -->
+
+
 
     </div>
   </div>

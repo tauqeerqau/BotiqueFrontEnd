@@ -2,8 +2,6 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-
-import { NKDatetimeModule } from 'ng2-datetime/ng2-datetime';
 import 'bootstrap-markdown/js/bootstrap-markdown.js';
 import 'bootstrap-select/dist/js/bootstrap-select.js';
 import 'parsleyjs';
@@ -20,15 +18,17 @@ import 'dropzone/dist/dropzone.js';
 import 'jasny-bootstrap/docs/assets/js/vendor/holder.js';
 import 'jasny-bootstrap/js/fileinput.js';
 import 'jasny-bootstrap/js/inputmask.js';
-import { CustomerFormComponent } from './customer.component.ts';
+import { NKDatetimeModule } from 'ng2-datetime/ng2-datetime';
+
+import { OrderdetailComponent } from './orderdetail.component';
 
 export const routes = [
-  { path: '', component: CustomerFormComponent, pathMatch: 'full' }
+  { path: '', component: OrderdetailComponent, pathMatch: 'full' }
 ];
 
 @NgModule({
   declarations: [
-    CustomerFormComponent
+    OrderdetailComponent
   ],
   imports: [
     CommonModule,
@@ -37,6 +37,6 @@ export const routes = [
     NKDatetimeModule
   ]
 })
-export default class CustomerModule {
+export default class OrderdetailModule {
   static routes = routes;
 }
